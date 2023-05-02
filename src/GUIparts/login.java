@@ -159,7 +159,7 @@ public class login extends javax.swing.JFrame {
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
          // TODO add your handling code here:
          if (AccountNumberField.getText().isEmpty() && PINfield.getText().isEmpty()){
-             JOptionPane.showMessageDialog(this, "Please etner your account number and PIN", "", JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(this, "Please enter your account number and PIN", "", JOptionPane.WARNING_MESSAGE);
          }else{
              try {
                  String query = "SELECT * FROM accounttable WHERE AccNumber = ? AND PIN = ?";
