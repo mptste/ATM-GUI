@@ -6,6 +6,7 @@ package GUIparts;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import databaseConnection.DBConnection;
+
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
  * @author pc
  */
 public class FastCash extends javax.swing.JFrame {
@@ -26,37 +26,38 @@ public class FastCash extends javax.swing.JFrame {
     public FastCash() {
         initComponents();
     }
-    
+
     int MyAccNum;
+
     public FastCash(int AccNum) {
         initComponents();
         MyAccNum = AccNum;
         getBalance();
-        
-        
+
+
     }
-    
+
     int OldBalance;
-    
+
     private void getBalance() {
         try {
-                 String query = "SELECT * FROM accounttable WHERE AccNumber ='"+MyAccNum+"'";
-                 PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-                // pst.setInt(1, Integer.valueOf(AccountNumberField.getText()));
-               //  pst.setInt(2, Integer.parseInt(PINfield.getText()));
-                 
-                 ResultSet rs = pst.executeQuery();
-                 
-                 if (rs.next()) {
-                     OldBalance = rs.getInt(9);
-                     BalanceFastCash.setText(""+OldBalance);
-                 }else{
-                 //    JOptionPane.showMessageDialog(this, "Wrong account number or PIN", "", JOptionPane.ERROR_MESSAGE);
-                 }
+            String query = "SELECT * FROM accounttable WHERE AccNumber ='" + MyAccNum + "'";
+            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+            // pst.setInt(1, Integer.valueOf(AccountNumberField.getText()));
+            //  pst.setInt(2, Integer.parseInt(PINfield.getText()));
 
-             } catch (SQLException e) {
-                 JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
-             }
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                OldBalance = rs.getInt(9);
+                BalanceFastCash.setText("" + OldBalance);
+            } else {
+                //    JOptionPane.showMessageDialog(this, "Wrong account number or PIN", "", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -165,66 +166,66 @@ public class FastCash extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(twothousandrsdbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(onethousandrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(twothousandfivehundredrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tenthousandrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BalanceFastCash, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fivethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(twothousandrsdbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(fivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(onethousandrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(twothousandfivehundredrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(tenthousandrsdbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(43, 43, 43)
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(14, 14, 14))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(94, 94, 94)
+                                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(BalanceFastCash, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(fivethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(onethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(twothousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(fivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(onethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(twothousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(fivethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(tenthousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(27, 27, 27)
+                                                                .addComponent(twothousandfivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(fivethousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tenthousandrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(twothousandfivehundredrsdbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BalanceFastCash)
-                    .addComponent(jLabel3))
-                .addGap(22, 22, 22))
+                                        .addComponent(BalanceFastCash)
+                                        .addComponent(jLabel3))
+                                .addGap(22, 22, 22))
         );
 
         pack();
@@ -236,23 +237,23 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 500) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-500);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 500);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -263,25 +264,24 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 1000) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
-        
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-1000);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 1000);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -292,25 +292,24 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 2000) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
-        
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-2000);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 2000);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -321,23 +320,23 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 2500) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-2500);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 2500);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -348,23 +347,23 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 5000) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-5000);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 5000);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -375,23 +374,23 @@ public class FastCash extends javax.swing.JFrame {
         if (OldBalance < 10000) {
             JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
 
-        }else{
+        } else {
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-10000);
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - 10000);
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-                  new MainMenu().setVisible(true);
-                  this.dispose();
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    new MainMenu().setVisible(true);
+                    this.dispose();
 
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -418,7 +417,7 @@ public class FastCash extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -440,12 +439,12 @@ public class FastCash extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         try {
-    UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
-    } catch( UnsupportedLookAndFeelException ex ) {
-    System.err.println( "Failed to initialize LaF" );
-    }
+            UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
+        } catch (UnsupportedLookAndFeelException ex) {
+            System.err.println("Failed to initialize LaF");
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
