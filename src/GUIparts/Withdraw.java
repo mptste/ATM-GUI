@@ -6,6 +6,7 @@ package GUIparts;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import databaseConnection.DBConnection;
+
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
  * @author pc
  */
 public class Withdraw extends javax.swing.JFrame {
@@ -26,34 +26,36 @@ public class Withdraw extends javax.swing.JFrame {
     public Withdraw() {
         initComponents();
     }
-    
+
     int MyAccNum;
+
     public Withdraw(int AccNum) {
         initComponents();
         MyAccNum = AccNum;
         getBalance();
     }
+
     int OldBalance;
-         
+
     private void getBalance() {
         try {
-                 String query = "SELECT * FROM accounttable WHERE AccNumber ='"+MyAccNum+"'";
-                 PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-                // pst.setInt(1, Integer.valueOf(AccountNumberField.getText()));
-               //  pst.setInt(2, Integer.parseInt(PINfield.getText()));
-                 
-                 ResultSet rs = pst.executeQuery();
-                 
-                 if (rs.next()) {
-                     OldBalance = rs.getInt(9);
-                     Ballb.setText(""+OldBalance);
-                 }else{
-                  //   JOptionPane.showMessageDialog(this, "Wrong account number or PIN", "", JOptionPane.ERROR_MESSAGE);
-                 }
+            String query = "SELECT * FROM accounttable WHERE AccNumber ='" + MyAccNum + "'";
+            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+            // pst.setInt(1, Integer.valueOf(AccountNumberField.getText()));
+            //  pst.setInt(2, Integer.parseInt(PINfield.getText()));
 
-             } catch (SQLException e) {
-                 JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
-             }
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                OldBalance = rs.getInt(9);
+                Ballb.setText("" + OldBalance);
+            } else {
+                //   JOptionPane.showMessageDialog(this, "Wrong account number or PIN", "", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -119,45 +121,45 @@ public class Withdraw extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AmountTb, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Withdrawbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Ballb, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(81, 81, 81)
+                                                .addComponent(jLabel10))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AmountTb, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Withdrawbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(Ballb, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ballb, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AmountTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Withdrawbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Ballb, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(AmountTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Withdrawbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46))
         );
 
         pack();
@@ -166,36 +168,36 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void AmountTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AmountTbMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_AmountTbMouseClicked
 
-    
+
     private void WithdrawbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WithdrawbuttonMouseClicked
         // TODO add your handling code here:
-        if (AmountTb.getText().isEmpty() ||  AmountTb.getText().equals(0)) {
-       
-            JOptionPane.showMessageDialog(this, "Please enter a valid amount", "", JOptionPane.ERROR_MESSAGE);
-        
-        } else if (OldBalance < Integer.valueOf(AmountTb.getText())) {
-                        JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
+        if (AmountTb.getText().isEmpty() || AmountTb.getText().equals(0)) {
 
-        }else{
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount", "", JOptionPane.ERROR_MESSAGE);
+
+        } else if (OldBalance < Integer.valueOf(AmountTb.getText())) {
+            JOptionPane.showMessageDialog(this, "Not enough money to withdraw", "", JOptionPane.WARNING_MESSAGE);
+
+        } else {
 
             try {
-            String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
-            PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
-            pst.setInt(1, OldBalance-Integer.valueOf(AmountTb.getText()));
-            pst.setInt(2, MyAccNum);
+                String query = "UPDATE accounttable SET Balance = ? WHERE AccNumber = ?";
+                PreparedStatement pst = DBConnection.getConnection().prepareStatement(query);
+                pst.setInt(1, OldBalance - Integer.valueOf(AmountTb.getText()));
+                pst.setInt(2, MyAccNum);
                 if (pst.executeUpdate() == 1) {
-                  JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
-      //            WithdrawMoney();
-                  new MainMenu().setVisible(true);
-                  this.dispose();
-                }else{
+                    JOptionPane.showMessageDialog(this, "Acount balance updated", "", JOptionPane.INFORMATION_MESSAGE);
+                    //            WithdrawMoney();
+                    new MainMenu().setVisible(true);
+                    this.dispose();
+                } else {
                     JOptionPane.showMessageDialog(this, "Missing information", "", JOptionPane.WARNING_MESSAGE);
                 }
-            }catch (HeadlessException | NumberFormatException | SQLException e) {
-                     JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
+            } catch (HeadlessException | NumberFormatException | SQLException e) {
+                JOptionPane.showMessageDialog(this, e, "", JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -222,7 +224,7 @@ public class Withdraw extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -242,10 +244,10 @@ public class Withdraw extends javax.swing.JFrame {
         }
         //</editor-fold>
         try {
-    UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
-    } catch( UnsupportedLookAndFeelException ex ) {
-    System.err.println( "Failed to initialize LaF" );
-    }
+            UIManager.setLookAndFeel(new FlatMaterialLighterIJTheme());
+        } catch (UnsupportedLookAndFeelException ex) {
+            System.err.println("Failed to initialize LaF");
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
